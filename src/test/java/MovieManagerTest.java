@@ -57,4 +57,18 @@ class MovieManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void findLastOverLimit() {
+        MovieManager manager = new MovieManager();
+        manager.add("Film I");
+        manager.add("Film II");
+        manager.add("Film III");
+        manager.add("Film IV");
+        manager.add("Film V");
+        manager.add("Film VI");
+        String[] expected = {"Film VI", "Film V", "Film IV", "Film III", "Film II"};
+        String[] actual = manager.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
